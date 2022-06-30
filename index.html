@@ -22,18 +22,19 @@
         </div>
     </div>
     <script>
-
-            // url1=`https://api.openweathermap.org/data/2.5/weather? ${37.39} & ${-122.08}&appid=69e62873cacea89448a3f6ff5e998dd0`
-            // respond = await fetch(url1)
-            // conResponse = await respond.json()
-            // console.log(conResponse)
            async function getDefaultLocat(){
             navigator.geolocation.getCurrentPosition(
                 (position)=>{
              let url1 = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=7c75dd4eb7a303b5f46e225c0b77bd0d`
                 fetch(url1).then((response)=>response.json()).then((convertedRes)=>{
-                    nam.innerHTML = `your current location is ${convertedRes.name}`
-                    temp.innerHTML = `your current latitude is ${convertedRes.coord.lat} and your current longitude is ${convertedRes.coord.lon}`
+                // nam.innerHTML = `your current location is ${convertedRes.name}`
+                // temp.innerHTML = `your current latitude is ${convertedRes.coord.lat} an     your current longitude is ${convertedRes.coord.lon}`
+                    
+                nam.innerHTML = `The current weather information in ${convertedRes.name}` 
+                temp.innerHTML = `Temperature is ${convertedRes.main.temp}°c`
+                disp.innerHTML =  `weather is ${convertedRes.weather[0].description}`
+                humidity.innerHTML = `Humidity is ${convertedRes.main.humidity}%`
+                wind.innerHTML =  `The wind speed is ${convertedRes.wind.speed} km/hr`
                 })
                 }
             )
