@@ -25,7 +25,7 @@
            async function getDefaultLocat(){
             navigator.geolocation.getCurrentPosition(
                 (position)=>{
-             let url1 = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=7c75dd4eb7a303b5f46e225c0b77bd0d`
+             let url1 = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=7c75dd4eb7a303b5f46e225c0b77bd0d`
                 fetch(url1).then((response)=>response.json()).then((convertedRes)=>{
                 // nam.innerHTML = `your current location is ${convertedRes.name}`
                 // temp.innerHTML = `your current latitude is ${convertedRes.coord.lat} an     your current longitude is ${convertedRes.coord.lon}`
